@@ -1,0 +1,237 @@
+:root {
+	--color-background: #fff;
+	--color-primary: hsl(166, 100%, 25%);
+	--color-primary-darked: hsl(166, 100%, 20%);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+@media only screen and (max-width: 75em) {
+	html {
+		font-size: 50%;
+	}
+}
+
+/* metropolis-latin-400-normal */
+@font-face {
+	font-family: 'Metropolis';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 400;
+	src: url(https://cdn.jsdelivr.net/fontsource/fonts/metropolis@latest/latin-400-normal.woff2)
+			format('woff2'),
+		url(https://cdn.jsdelivr.net/fontsource/fonts/metropolis@latest/latin-400-normal.woff)
+			format('woff');
+}
+
+body {
+	font-family: 'Metropolis', sans-serif;
+	color: #000;
+	font-weight: 300;
+	line-height: 1.6;
+	min-height: 100vh;
+}
+
+.container {
+	max-width: 120rem;
+	margin: 8rem auto;
+	background-color: var(--color-background);
+	min-height: 50rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+@media only screen and (max-width: 75em) {
+	.container {
+		margin: 2rem auto;
+		max-width: 100%;
+		width: 100%;
+	}
+}
+.rectangle {
+	width: 34.0734rem;
+	/* height: 74.8rem; */
+}
+
+header {
+	font-size: 1.8076rem;
+	color: var(--color-primary);
+	font-weight: 500;
+	word-wrap: break-word;
+	text-align: center;
+	position: relative;
+}
+
+header::after,
+header::before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 9.3996rem;
+	height: 0.0904rem;
+	background: #c8c8c8;
+	top: calc(50% - 0.0904rem);
+}
+header::after {
+	left: 0;
+}
+header::before {
+	right: 0;
+}
+
+section {
+	position: relative;
+	margin-top: 1.75rem;
+	padding: 2rem 2.2rem;
+	border-radius: 0.3615rem;
+	border: 0.904px solid #c8c8c8;
+	display: flex;
+	flex-direction: column;
+}
+
+section > div {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+section > div > div:first-child {
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+}
+section > div > div:last-child {
+	text-align: end;
+}
+section > div > div:last-child h4 {
+	color: var(--color-primary);
+	font-size: 1.4461rem;
+	font-style: normal;
+	font-weight: 600;
+}
+
+section div h3 {
+	font-size: 1.4461rem;
+	font-weight: 500;
+}
+section div h4 {
+	font-size: 1.4461rem;
+	font-weight: 400;
+}
+section > div div:has(strike) {
+	color: #c8c8c8;
+	align-self: flex-end;
+}
+
+input[type='radio'] {
+	appearance: none;
+	background-color: #fff;
+	margin: 0;
+	font: inherit;
+	width: 1.15em;
+	height: 1.15em;
+	border: 0.15em solid #dadada;
+	border-radius: 50%;
+	display: grid;
+	place-content: center;
+}
+
+input[type='radio']::before {
+	content: '';
+	width: 0.65em;
+	height: 0.65em;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 1em 1em var(--color-primary);
+}
+
+input[type='radio']:checked::before {
+	transform: scale(1);
+}
+section:has(input[type='radio']:checked) {
+	background: #f4fbf9;
+	border: 0.904px solid var(--color-primary);
+}
+input[type='radio']:checked {
+	border: 0.15em solid var(--color-primary);
+}
+
+.details {
+	display: none;
+}
+
+section:has(input[type='radio']:checked) .details {
+	display: block;
+}
+
+table th {
+	text-align: start;
+	font-size: 0.9942rem;
+	font-weight: 400;
+}
+
+table td select {
+	width: 6.5978rem;
+	height: 2.5306rem;
+	font-size: 1.0846rem;
+	border-radius: 0.1808rem;
+	border: 0.904px solid #d9d9d9;
+	background: #fff;
+}
+
+table td select:focus {
+	outline: var(--color-primary) solid;
+}
+
+td {
+	padding-bottom: 0.5rem;
+}
+
+footer {
+	margin-top: 1.75rem;
+}
+
+footer div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+footer div span:first-child {
+	color: var(--color-primary);
+	font-size: 1.4rem;
+	font-weight: 500;
+}
+footer div span:last-child {
+	color: #000;
+	font-size: 1.4rem;
+	font-weight: 500;
+}
+
+button {
+	margin-top: 1.75rem;
+	color: #fff;
+	background-color: var(--color-primary);
+	border: none;
+	height: 4.8rem;
+	width: 100%;
+	border-radius: 0.4rem;
+}
+
+button:hover {
+	background-color: var(--color-primary-darked);
+	cursor: pointer;
+}
